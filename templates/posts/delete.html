@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %}Delete{% endblock title %}
+{% block title %}Delete Post{% endblock title %}
 
 {% block content %}
-<h1 class="text-danger">Delete Post</h1>
-<p>Are you sure you want to delete this post?</p>
-<h5 class="text-primary">{{ post.title }}</h5>
-<h6>{{ post.subtile }}</h6>
-<small>{{ post.body|truncatechars:128 }}</small>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn btn-danger mt-3 " value="Confirm">
-</form>
-<a href="{% url 'list' %}" class="btn btn-outline-secondary mt-2"> Go back</a>
+<div class="container mt-4">
+    <h1 class="text-danger">Delete Post</h1>
+    <p>Are you sure you want to delete this post?</p>
+    
+    <div class="card p-4 mb-3">
+        <h5 class="text-primary">{{ post.title }}</h5>
+        <h6 class="text-muted">{{ post.subtitle }}</h6>
+        <p class="text-secondary">{{ post.body|truncatechars:128 }}</p>
+    </div>
+    
+    <form method="POST" class="d-inline">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger me-2" value="Confirm">
+    </form>
+    <a href="{% url 'list' %}" class="btn btn-outline-secondary">Go back</a>
+</div>
 {% endblock content %}
