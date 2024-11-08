@@ -3,11 +3,21 @@
 {% block title %}Sign Up{% endblock title %}
 
 {% block content %}
-<h1>Sign Up</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn btn-success" value="Sign Up">
-</form>
-Alredy have an account? <a href="{% url 'login' %}" class="btn btn-primary">Click Here</a> to login.
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card p-5" style="width: 100%; max-width: 600px;">
+        <h1 class="text-center mb-4">Sign Up</h1>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-grid mt-3">
+                <input type="submit" class="btn btn-success" value="Sign Up">
+            </div>
+        </form>
+        
+        <p class="text-center mt-4">
+            Already have an account? <a href="{% url 'login' %}" class="text-primary">Click here</a> to log in.
+        </p>
+    </div>
+</div>
 {% endblock content %}

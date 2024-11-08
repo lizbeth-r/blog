@@ -3,6 +3,11 @@
 {% block title %}Forbidden (403){% endblock title %}
 
 {% block content %}
-<h1>Forbidden (403)</h1>
-<p>You are not authorized to view this page.</p>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="text-center">
+        <h1 class="display-4 text-danger">403 Forbidden</h1>
+        <p class="lead">You are not authorized to view this page.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary mt-4">Go to Home</a>
+    </div>
+</div>
 {% endblock content %}
